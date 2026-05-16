@@ -17,3 +17,7 @@ pymupdf
 trafilatura
 beautifulsoup4
 apify-client
+redis
+requests
+pytest
+celery

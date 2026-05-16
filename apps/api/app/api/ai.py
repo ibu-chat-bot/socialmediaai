@@ -28,6 +28,14 @@ async def chat(request: ChatRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.get("/providers")
+async def get_providers():
+    return {
+        "openai": True,
+        "anthropic": True,
+        "google": True
+    }
+
 @router.post("/test")
 async def test_ai(prompt: str = "Merhaba"):
     # ... mevcut test kodu ...
