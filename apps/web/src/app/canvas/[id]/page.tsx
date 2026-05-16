@@ -18,6 +18,8 @@ import { CompetitorAnalysisNode } from "@/components/canvas/nodes/CompetitorAnal
 import { CanvasToolbar } from "@/components/canvas/toolbars/CanvasToolbar";
 import { CanvasTopbar } from "@/components/canvas/toolbars/CanvasTopbar";
 import { JobStatusToast } from "@/components/canvas/JobStatusToast";
+import { EmptyCanvas } from "@/components/canvas/EmptyCanvas";
+import { motion, AnimatePresence } from "framer-motion";
 
 const nodeTypes = {
   video: VideoNode,
@@ -79,6 +81,7 @@ function CanvasInternal({ id }: { id: string }) {
         nodeTypes={nodeTypes}
         fitView
       >
+        {nodes.length === 0 && <EmptyCanvas />}
         <Background color="#cbd5e1" gap={20} size={1} />
         
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
