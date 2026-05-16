@@ -1,0 +1,10 @@
+celery
+redis
+httpx
+python-dotenv
+pydantic
+pydantic-settings
+yt-dlp
+openai-whisper
+ffmpeg-python
+openai
