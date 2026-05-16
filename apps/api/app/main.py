@@ -1,10 +1,19 @@
+# --- NAILING AI CLONE: MAIN API ENTRY POINT ---
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api import (
+    boards, ai, import_youtube, import_docs, 
+    import_media, import_social, viral_finder, 
+    competitor, jobs
+)
 
-from app.api import boards, ai, import_youtube, import_docs, import_media, import_social, viral_finder, competitor, jobs
+app = FastAPI(
+    title="Nailing AI Clone API",
+    description="Professional Multimodal Social Media Intelligence Platform",
+    version="1.0.0"
+)
 
-app = FastAPI(title="Nailing AI Clone API")
-
+# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -13,6 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Router Registration
 app.include_router(boards.router)
 app.include_router(ai.router)
 app.include_router(import_youtube.router)
